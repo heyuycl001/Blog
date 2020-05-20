@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>模仿Vue2.x.x实现骨架版(简易版)双向数据绑定Object.defineProperty()</title>
+</head>
+<body>
+  <p id="data"></p>
+  <input type="text" id="view" onkeyup="inputChange(event)">
+  <input type="button" value="增加1" onclick="add()">
+</body>
+</html>
+
+<script src="./1.js"></script>
+<script>
+
+  function inputChange(ev) {
+    let value = Number.parseInt(ev.target.value);
+    obj.value = (Number.isNaN(value)) ? 0 : value;
+  }
+  
+  function add() {
+    obj.value = obj.value + 1;
+  }
+  
+</script>
