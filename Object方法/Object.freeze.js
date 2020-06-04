@@ -46,6 +46,6 @@ deepFreeze1 = (obj) => {
 
 // Object.freeze()冻结的是值，你仍然可以将变量的引用替换掉。
 obj = {
-  name:'HH'
+  name: 'HH'
 }
 console.log(obj)
