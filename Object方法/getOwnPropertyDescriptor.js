@@ -23,3 +23,16 @@ console.log(d)
 //   enumerable: true,
 //   configurable: true
 // }
+
+
+let obj1 = {},
+  result
+Object.defineProperty(obj1, 'baz', {
+  value: 231,
+  writable: false,
+  enumerable: false
+})
+
+result = Object.getOwnPropertyDescriptor(obj1, 'baz')
+
+console.log(result) // { value: 231, writable: false, enumerable: false, configurable: false }
