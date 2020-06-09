@@ -9,8 +9,8 @@ axios.defaults.withCredentials = true;
 let nodeenv = process.env.NODE_ENV;
 let baseUrl = '';
 switch (document.domain) {
-  case '182.92.209.121':
-    baseUrl = 'http://182.92.209.121:8089'
+  case '':
+    baseUrl = ''
     break;
 }
 axios.defaults.baseURL = nodeenv === 'development' ? '/api' : baseUrl;
