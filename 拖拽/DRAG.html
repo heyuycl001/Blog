@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<link rel="stylesheet" href="reset.css">
+<style>
+  .box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: lightcoral;
+    cursor: move;
+  }
+</style>
+
+<body>
+  <div class="box" id="box"></div>
+</body>
+
+</html>
+<script>
+  let box = document.querySelector('#box')
+  box.addEventListener('mousedown', down)
+  function down(ev) {
+    this.boxClientX = ev.clientX
+    this.boxClientY = ev.clientY
+    this.startL = this.offsetLeft;
+    this.startT = this.offsetTop;
+    /**
+      * 拖拽案例中一个经典问题：鼠标焦点丢失问题
+      *   =>鼠标移动过快，鼠标会脱离拖拽的盒子，在盒子外面鼠标移动无法触发盒子的mousemove，盒子不会在跟着计算最新的位置 
+      *   =>在盒子外面松开鼠标，也不会触发盒子的mouseup，导致mousemove事件没有被移除，鼠标重新进入盒子，不管是否按住，盒子都会跟着走
+      *   ......
+      * 
+      * [IE和火狐浏览器中]
+      *    setCapture / releaseCapture：可以实现把元数和鼠标绑定在一起（或者移除绑定）的效果，来防止鼠标焦点丢失
+      * 
+      * [谷歌中的解决方案]
+      *    孙猴子（鼠标）蹦的在欢快，也逃离不了如来佛祖（document）的五指山，所以我们在项目中，move和up方法绑定给document，而不是盒子
+      */
+    this._move = move.bind(this)
+    this._up = up.bind(this)
+    document.addEventListener('mousemove', this._move)
+    document.addEventListener('mouseup', this._up)
+  }
+
+  function move(ev) {
+    let boxOffsetL = ev.clientX
+    let boxOffsetT = ev.clientY
+
+    let left = boxOffsetL - this.boxClientX + this.startL
+    let top = boxOffsetT - this.boxClientY + this.startT
+    box.style.left = left + 'px';
+    box.style.top = top + 'px';
+  }
+  function up(ev) {
+    document.removeEventListener('mousemove', this._move)
+    document.removeEventListener('mouseup', this._up)
+  }
+</script>
