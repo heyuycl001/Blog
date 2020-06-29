@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">点击弹出</button>
+</body>
+
+</html>
+
+<script src="./index.js"></script>
+<script>
+
+  btn.onclick = function () {
+    alert(`
+      按下的原因: <input type="text" id="AA" />
+    `, {
+      title: '哥哥,请不要乱按呦',
+      confirm: true,
+      handle: (type) => {
+        // console.log(type)
+        if (type !== '点击确定') return;
+        let AA = document.getElementById('AA')
+        console.log(AA.value)
+      }
+    })
+  }
+</script>
