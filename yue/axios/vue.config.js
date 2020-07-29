@@ -1,10 +1,6 @@
 module.exports = {
   lintOnSave: true,
   productionSourceMap: true,
-  css: {
-    extract: true,
-    sourceMap: false
-  },
   pages: {
     index: {
       entry: 'src/main.js',
