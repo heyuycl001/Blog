@@ -2,10 +2,11 @@
   <div class='LeftCollapseMenu'>
     <el-menu class="el-menu-vertical-demo"
              :collapse="true"
-             :router="true">
+             :router="true"
+             :default-active="selectedRoute">
       <el-menu-item v-for="(icon,index) in LeftCollapseMenu.icon"
                     :key="index"
-                    :index="`${index+1}`"
+                    :index="LeftCollapseMenu.route[index]"
                     :route="LeftCollapseMenu.route[index]">
         <i :class="icon"></i>
       </el-menu-item>
@@ -18,8 +19,8 @@
 // 例如：import 《组件名称》 from '《组件路径》';
 
 export default {
-  // import引入的组件需要注入到对象中才能使用
   name: 'LeftCollapseMenu',
+  // import引入的组件需要注入到对象中才能使用
   props: {
     LeftCollapseMenu: { // menu需要的数据
       type: Object,
@@ -30,6 +31,14 @@ export default {
         }
       }
     }
+  },
+  data () {
+    return {
+      selectedRoute: null
+    }
+  },
+  created () {
+    this.selectedRoute = this.$route.matched[0].path // 初始化第一次选中的路由
   }
 }
 </script>
