@@ -13,7 +13,7 @@ window.alert = (function () {
      * @param {*} type  元素类型
      * @param {*} cssText  元素样式
      */
-    create(type, cssText) {
+    create (type, cssText) {
       let element = document.createElement(type)
       element.style.cssText = cssText
       return element
@@ -36,7 +36,7 @@ window.alert = (function () {
       </div>
   	</div>
     */
-    createElement() {
+    createElement () {
       this.$DIALOG = this.create('div', `
         position: fixed;
         top: 0;
@@ -157,7 +157,7 @@ window.alert = (function () {
     }
 
     // 显示模态框
-    show() {
+    show () {
       // this.$DIALOG.style.display = 'block'
       this.$DIALOG.style.opacity = '1'
       this.$MAIN.style.transform = 'translateY(0px)'
@@ -175,7 +175,7 @@ window.alert = (function () {
      * 隐藏模态框
      * @param {*} type 是怎么取消的。 点击确定/点击取消/默认3S取消
      */
-    hide(type = '默认3S取消') {
+    hide (type = '默认3S取消') {
       this.$MAIN.style.transform = 'translateY(-1000px)'
       this.$DIALOG.style.opacity = '0'
 
@@ -193,7 +193,7 @@ window.alert = (function () {
       this.$DIALOG.addEventListener('transitionend', fn)
     }
 
-    down(ev) {
+    down (ev) {
       // 移动先 清除 默认3S取消
       clearTimeout(this.$timeout)
       this.startX = ev.clientX
@@ -206,7 +206,7 @@ window.alert = (function () {
       document.addEventListener('mouseup', this._up)
     }
 
-    move(ev) {
+    move (ev) {
       let boxOffsetL = ev.clientX
       let boxOffsetT = ev.clientY
 
@@ -222,14 +222,14 @@ window.alert = (function () {
       this.$MAIN.style.top = top + 'px';
       this.$MAIN.style.marginLeft = 0
     }
-    up(ev) {
+    up (ev) {
       // 松开的时候，在打开默认取消
       this.show()
       document.removeEventListener('mousemove', this._move)
       document.removeEventListener('mouseup', this._up)
     }
 
-    init() {
+    init () {
       this.createElement()
       this.$DIALOG.offsetWidth // =>阻断渲染队列,让上面的代码立即先渲染
       this.show()
@@ -252,7 +252,7 @@ window.alert = (function () {
 
 
 
-  return function proxy(content, option = {}) {
+  return function proxy (content, option = {}) {
     if (content === 'undefined') new Error('请输入内容')
     if (option === null || typeof option !== 'object') new Error('option 只能为对象')
 
