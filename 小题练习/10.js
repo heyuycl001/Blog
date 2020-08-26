@@ -9,6 +9,9 @@ var foo = {
 function bar (a, b) {
   console.log(a, b)
   console.log(this.value);
+  return {
+    value: this.value
+  }
 }
 
 /**
@@ -37,3 +40,18 @@ bar.call2(foo, 199, 200)
 /**
  * 参数也绑定成功了
  */
+
+/**
+ * this的参数可以为null，如果传null，则指向window
+ * 还可以有返回值
+ */
+Function.prototype.call2 = function call2 (content) {
+  const args = Array.from(arguments).slice(1)
+  content = content || window
+  content.fn = this
+  let result = content.fn(...args)
+  delete content.fn
+  return result
+}
+let st = bar.call2(foo, 199, 200)
+console.log(st)
