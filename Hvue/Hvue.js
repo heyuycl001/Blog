@@ -25,15 +25,12 @@ class Vue {
 
   defineReactive (obj, key, val) {
     this.observe(val)
-
     // 定义一个dep
     const dep = new Dep()
-
     // 给obj的每一个key定义拦截
     Object.defineProperty(obj, key, {
       get () {
-
-        // 依赖收集
+        // 依赖收集 // 证明
         console.log(Dep.target)
         Dep.target && dep.addDep(Dep.target)
 
@@ -70,6 +67,7 @@ class Dep {
   }
 
   notify () {
+    console.log(this.deps)
     this.deps.forEach(dep => dep.update())
   }
 }
@@ -77,7 +75,6 @@ class Dep {
 // 创建 Watcher：保存data中的数值和页面的挂钩关系
 class Watcher {
   constructor(vm, key) {
-
     // 创建实例时立刻把该实例指向 Dep.target 便于依赖收集
     Dep.target = this
     this.vm = vm
