@@ -15,6 +15,7 @@ class myPromise {
       // 改变状态后 把THEN里的方法执行
       let fnArr = this.status === 'resolved' ? this.resolveArr : this.rejectArr
       fnArr.forEach(item => {
+
         if (typeof item !== 'function') return;
         item(this.value)
       })
@@ -48,8 +49,14 @@ class myPromise {
     }
   }
 
-  then(resolveFn, rejectFn) {
+  then (resolveFn, rejectFn) {
     this.resolveArr.push(resolveFn)
     this.rejectArr.push(rejectFn)
   }
 }
+
+new myPromise((res, rej) => {
+  res(10)
+}).then((res) => {
+  console.log(res)
+})
