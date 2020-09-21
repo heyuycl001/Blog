@@ -27,5 +27,10 @@ var searchInsert = function (nums, target) {
   }
   return nums.length
 };
-searchInsert([1, 3, 5, 6], 0)
 
+
+
+
+
+
+console.log(searchInsert([1, 3, 5, 6], 7))
