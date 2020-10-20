@@ -1,2 +1,47 @@
-[模仿Vue2.x.x实现简易版双向数据绑定Object.defineProperty()](https://github.com/heyuycl001/Blog/blob/master/%E6%A8%A1%E4%BB%BFVue2.x.x%E5%AE%9E%E7%8E%B0%E7%AE%80%E6%98%93%E7%89%88%E5%8F%8C%E5%90%91%E6%95%B0%E6%8D%AE%E7%BB%91%E5%AE%9AObject.defineProperty())
+##### 封装axios
+> 项目中基于对axios的封装
 
+##### 模仿Vue2.x.x实现简易版双向数据绑定Object.defineProperty()
+> 模仿Vue2实现简单的双向数据绑定
+
+##### 深浅克隆
+> 对深浅克隆的练习
+
+##### 数据结构
+> 对数据结构的后续了解
+
+##### 数据扁平化
+> 数组扁平化的方法
+
+##### 同步异步
+> 对Event Loop的理解
+
+##### 拖拽
+> 基于原生js的简单拖拽
+
+##### 小题练习
+> 基于js的各种小题练习
+
+##### Array的属性和方法
+> Array的属性及其方法
+
+##### Dialog
+> 自己封装的Dialog组件
+
+##### ES6模块与CommonJS
+> 了解ES6模块与CommonJS
+
+##### Hvue
+> 模仿Vue2实现简单的双向数据绑定
+
+##### js中的各种概念
+> 基于js中的各种概念
+
+##### leetcode
+> leetcode刷刷题
+
+##### Object方法
+> Object的方法
+
+##### Promise
+> 实现符合A+规范的Promise
