@@ -19,18 +19,39 @@
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function (nums, target) {
+/* var searchInsert = function (nums, target) {
   for (let i = 0; i < nums.length; i++) {
     if (target <= nums[i]) {
       return i
     }
   }
   return nums.length
+}; */
+
+
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function (nums, target) {
+  var low = 0,
+    height = nums.length - 1,
+    mid;
+  while (low <= height) {
+    mid = Math.floor((low + height) / 2)
+    if (nums[mid] == target) {
+      return mid;
+    } else if (nums[mid] < target) {
+      low = mid + 1
+    } else {
+      height = mid - 1
+    }
+  }
+  return low
 };
 
 
 
 
-
-
-console.log(searchInsert([1, 3, 5, 6], 7))
+console.log(searchInsert([1, 3, 5, 6], 1))
