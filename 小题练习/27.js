@@ -31,4 +31,4 @@ function sum() {
         sum.arr.reduce((a, b) => a + b)
     return sum
 }
-console.log(sum(1, 2, 3).sumOf())
+console.log(sum(2, 3)(2).sumOf())
