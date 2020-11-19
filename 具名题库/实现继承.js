@@ -8,7 +8,7 @@ SuperType.prototype.sayName = function () { // 父类原型方法
     return this.name;
 };
 // 子类
-function SubType() {}
+// function SubType() {}
 
 
 // 原型链继承
@@ -71,3 +71,38 @@ function SubType() {}
  * console.log(subType2_1 instanceof SubType); // true
  * console.log(subType2_1 instanceof SuperType); // false
  */
+
+
+// 组合继承
+// 组合继承就是把原型链继承和构造函数继承 组合起来的继承方式
+// 优点: (弥补了原型链继承 和 构造函数继承的缺点：可以继承实例属性/方法;也可以继承原型上的属性/方法;不存在引用类型共享;可传参、可复用)
+//    1. 既能继承父类的属性和方法，也能继承原型上的属性和方法
+//    2. 实例只是子类的实例，也是父类的实例
+//    3. 引用类型的属性变化，不会影响所有子类
+//    4. 创建子类的时候可以向父类传参数
+// 缺点:
+//    1. 调用了两次父类构造函数，生成了两份实例
+function SubType(name) {
+    SuperType.call(this, name)
+}
+SubType.prototype = new SuperType()
+SubType.prototype.constructor = SubType
+
+// 可传参
+const subType3 = new SubType('SubType')
+console.log(subType3.name) // SubType
+console.log(subType3.colors); // [ 'red', 'blue', 'green' ]
+console.log(subType3.days); // 今晚不回家
+
+// 既能继承父类的属性和方法，也能继承原型上的属性和方法
+console.log(subType3.sayName()); // SubType
+
+// 实例只是子类的实例，也是父类的实例
+console.log(subType3 instanceof SubType); // true
+console.log(subType3 instanceof SuperType); // true
+
+// 引用类型的属性变化，不会影响所有子类
+subType3.colors.push('yellow')
+console.log(subType3.colors) // [ 'red', 'blue', 'green', 'yellow' ]
+const subType3_1 = new SubType('SubType')
+console.log(subType3_1.colors) // [ 'red', 'blue', 'green' ]
