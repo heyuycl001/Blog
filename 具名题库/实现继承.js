@@ -113,6 +113,7 @@ console.log(subType3_1.colors) // [ 'red', 'blue', 'green' ]
 
 // 寄生组合继承
 // 寄生组合继承完善了组合继承的缺点，解决了执行两次父类构造函数。
+// 
 function SubType(name) {
     SuperType.call(this, name)
 }
