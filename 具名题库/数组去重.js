@@ -75,30 +75,3 @@ console.log(res4)
 /* [1, '1', null, undefined, /a/, NaN, {},
     []
 ] */
-
-
-[{
-    name: 'hy'
-}, {
-    age: '12',
-    name: 'hy'
-}, {
-    age: '14'
-}, {
-    name: 'zp'
-}, {
-    age: '12',
-    name: 'zp'
-}, {
-    age: '12',
-    name: 'hy'
-}, {
-    fn: /\sd/,
-    name: 'zp'
-}, {
-    fn: /\sd/,
-    name: 'zp'
-}, {
-    fn: {},
-    name: 'zp'
-}]
