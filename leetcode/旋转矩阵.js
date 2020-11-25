@@ -1,7 +1,9 @@
 var rotate = function (matrix) {
   for (var i = 0; i < matrix.length; i++) {
     for (var j = 0; j < i; j++) {
+      console.log(i,j , `~~~~~~~${i}~~~~~`);
       let temp = matrix[j][i];
+      console.log(temp)
       matrix[j][i] = matrix[i][j]
       matrix[i][j] = temp
     }
