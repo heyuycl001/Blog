@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <!-- 
+            平时开发经常遇到 一个容器把另一个容器遮挡住了，然后就被遮挡的容器就触发不了事件
+            只需要给遮挡容器 设置  pointer-events: none; 即可
+        -->
+    </title>
+    <style>
+        .box {
+            position: relative;
+            width: 1000px;
+            height: 1000px;
+        }
+
+        .main1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            pointer-events: none;
+        }
+
+        .main2 {
+            width: 400px;
+            height: 400px;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="main1"></div>
+        <div class="main2"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var main = document.getElementsByClassName('main2')[0]
+    console.log(main)
+    main.onclick = function () {
+        alert('111')
+    }
+</script>
+
