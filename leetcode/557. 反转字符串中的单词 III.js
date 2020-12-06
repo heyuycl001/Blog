@@ -12,6 +12,10 @@
 在字符串中，每个单词由单个空格分隔，并且字符串中不会有任何额外的空格。
 */
 
+/**
+ * @param {string} s
+ * @return {string}
+ */
 var reverseWords = function (s) {
   return s.split(' ').map(item => {
     return item.split('').reverse().join('')
