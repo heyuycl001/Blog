@@ -55,7 +55,7 @@ var hasCycle = function (head) {
     let fast = head, // 快
         slow = head; // 慢
     while (fast) {
-        if (!slow.next) return false
+        if (!fast.next) return false
         fast = fast.next.next
         slow = slow.next
         if (slow == fast) return true
