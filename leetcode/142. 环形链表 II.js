@@ -60,7 +60,7 @@ var detectCycle = function (head) {
     let k = head,
         m = head;
     while (k) {
-        if(!k.next) return null
+        if (!k.next) return null
         k = k.next.next
         m = m.next
         if (k === m) { // 证明有环
@@ -89,4 +89,16 @@ var detectCycle = function (head) {
     得出 a = c
     所以 在第一次相遇出 把 k 重置 为 head 
     然后 k、m 相同速度走，会在 入环处相遇
+
+
+假设 超过 n 圈才相遇
+    k = a + b + bn + cn
+    k = a + (n+1)b + cn
+    a + b + nb + cn = 2a + 2b
+    a - 2a = 2b - (b + bn + cn)
+    -a = b - bn - cn
+    a = bn + cn - b
+    a = (b + c)n - b
+    a = (n - 1)(b + c) + c
+因此可以得出 a到入环的距离 = 第一次相遇的距离到入环的距离
 */
