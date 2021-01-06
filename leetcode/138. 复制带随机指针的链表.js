@@ -55,6 +55,7 @@ var copyRandomList = function (head) {
     while (cur) {
         temp.val = cur.val
         temp.next = cur.next ? new Node() : null
+        console.log(temp)
         map.set(cur, temp)
         cur = cur.next
         temp = temp.next
