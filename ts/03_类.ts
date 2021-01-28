@@ -20,4 +20,4 @@ function greeter(person: Person) {
 
 let user = new User('zz', 'xx')
 
-console.log(greeter(user))
+// console.log(greeter(user))

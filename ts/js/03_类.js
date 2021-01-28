@@ -10,4 +10,4 @@ function greeter(person) {
     return 'Hello, ' + person.firstName + ' ' + person.lastName;
 }
 var user = new User('zz', 'xx');
-console.log(greeter(user));
+// console.log(greeter(user))
