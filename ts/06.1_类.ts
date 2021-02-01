@@ -1,3 +1,4 @@
+// ! 多态
 (() => {
     class Animal {
         name: string
@@ -27,7 +28,7 @@
             console.log(this.name + sum)
         }
     }
-
+    // ! 多态
     const animal: Animal = new Animal('zz')
     const dog: Dog = new Dog('xx')
     const pig: Pig = new Pig('cc')
