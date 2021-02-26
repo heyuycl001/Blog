@@ -42,11 +42,14 @@ const root = {
  * @param {TreeNode} root
  * @return {number[]}
  */
+
 var preorderTraversal = function (root) {
   let result = [];
+
   const preorder = (root) => {
     if (root) {
       result.push(root.val);
+
       root.left && preorder(root.left);
       root.right && preorder(root.right);
     }
@@ -54,5 +57,23 @@ var preorderTraversal = function (root) {
   preorder(root);
   return result;
 };
+
+/* 
+var preorderTraversal = function (root) {
+  let result = [];
+  let stack = [];
+  if (root) stack.push(root);
+  while (stack.length > 0) {
+    const node = stack.pop();
+    result.push(node.val);
+
+    node.right && stack.push(node.right);
+
+    node.left && stack.push(node.left);
+  }
+
+  return result;
+}; 
+*/
 
 console.log(preorderTraversal(root));
