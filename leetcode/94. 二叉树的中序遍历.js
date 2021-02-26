@@ -41,6 +41,7 @@ const root = {
  * @param {TreeNode} root
  * @return {number[]}
  */
+/* 
 var inorderTraversal = function (root) {
   let result = [];
   const inorder = (root) => {
@@ -52,6 +53,22 @@ var inorderTraversal = function (root) {
   };
   inorder(root);
   return result;
+}; 
+*/
+
+var inorderTraversal = function (root) {
+  let result = [],
+    stack = [];
+  while (root || stack.length) {
+    while (root) {
+      stack.push(root);
+      root = root.left;
+    }
+    root = stack.pop();
+    result.push(root.val);
+    root = root.right;
+  }
+  console.log(result);
 };
 
 inorderTraversal(root);
