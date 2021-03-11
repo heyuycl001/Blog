@@ -34,7 +34,7 @@ const root = {
  * @param {TreeNode} root
  * @return {number[]}
  */
-/* 
+
 var postorderTraversal = function (root) {
   const result = [];
   const postorder = (root) => {
@@ -47,8 +47,9 @@ var postorderTraversal = function (root) {
   postorder(root);
   return result
 };
-*/
 
+
+/* 
 var postorderTraversal = function (root) {
   const result = [],
     stack = [];
@@ -62,6 +63,7 @@ var postorderTraversal = function (root) {
     node.right && stack.push(node.right);
   }
   return result;
-};
+}; 
+*/
 
 console.log(postorderTraversal(root));
