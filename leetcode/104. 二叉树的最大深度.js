@@ -33,8 +33,8 @@ const root = {
  */
 var maxDepth = function (root) {
   if (!root) return 0;
-  const left = maxDepth(root.left);
-  const right = maxDepth(root.right);
+  let left = maxDepth(root.left);
+  let right = maxDepth(root.right);
   return left > right ? left + 1 : right + 1;
 };
 
