@@ -26,7 +26,6 @@ const root = {
     right: null,
   },
 };
-
 /**
  * @param {TreeNode} root
  * @return {number}
