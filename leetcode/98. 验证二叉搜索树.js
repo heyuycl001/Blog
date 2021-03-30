@@ -51,11 +51,14 @@ const root = {
 //   return isValidBST(root.left) && isValidBST(root.right);
 // };
 
-var isValidBST = function (root, pre = null, next = null) {
-  if (!root) return true;
-  if (pre && pre.val >= root.val) return false;
-  if (next && next.val <= root.val) return false;
-  return isValidBST(root.left, pre, root) && isValidBST(root.right, root, next);
+var isValidBST = function (root) {
+  const isValid = (root = null, min = null, max = null) => {
+    if (!root) return true;
+    if (min && root.val <= min.val) return false;
+    if (max && root.val >= max.val) return false;
+    return isValid(root.left, min, root) && isValid(root.right, root, max);
+  };
+  return isValid(root);
 };
 
 console.log(isValidBST(root));
