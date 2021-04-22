@@ -62,7 +62,7 @@ const root = {
 //   return result;
 // };
 
-var levelOrder = function (root) {
+/* var levelOrder = function (root) {
   if (!root || root.length < 1) return [];
   const result = [];
   let queue = [[root, 0]];
@@ -78,4 +78,5 @@ var levelOrder = function (root) {
   return result;
 };
 
-console.log(levelOrder(root));
+console.log(levelOrder(root)); */
+

@@ -54,7 +54,7 @@ const root = {
 }; */
 
 // 利用栈来记录比较的过程
-var isSymmetric = function (root) {
+/* var isSymmetric = function (root) {
   const stack = [root.left, root.right];
   while (stack.length) {
     let right = stack.pop();
@@ -67,6 +67,23 @@ var isSymmetric = function (root) {
     }
   }
   return true;
-};
+}; */
 
+// console.log(isSymmetric(root));
+
+var isSymmetric = function (root) {
+  const check = (left, right) => {
+    if (left === right) return true;
+    if (left && right) {
+      return (
+        left.val === right.val &&
+        check(left.left, right.right) &&
+        check(left.right, right.left)
+      );
+    } else {
+      return false;
+    }
+  };
+  return check(root.left, root.right);
+};
 console.log(isSymmetric(root));
