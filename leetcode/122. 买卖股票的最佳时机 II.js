@@ -41,5 +41,5 @@ var maxProfit = function (prices) {
   return sum;
 };
 
-let arr = [7, 6, 4, 3, 1];
+let arr = [7, 1, 5, 3, 6, 4];
 maxProfit(arr);
