@@ -19,16 +19,28 @@
  * @param {number[]} nums
  * @return {number}
  */
-var removeDuplicates = function (nums) {
-    let read = write = 0
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[read] !== nums[write]) {
-            write++
-            nums[write] = nums[read]
-        }
-        read++
+/* var removeDuplicates = function (nums) {
+  let read = (write = 0);
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[read] !== nums[write]) {
+      write++;
+      nums[write] = nums[read];
     }
-    return write + 1
+    read++;
+  }
+  return write + 1;
+}; */
+var removeDuplicates = function (nums) {
+  let read = 0,
+    write = 0;
+  while (read < nums.length) {
+    if (nums[read] !== nums[write]) {
+      write++;
+      nums[write] = nums[read];
+    }
+    read++;
+  }
+  return write + 1;
 };
 
 // var removeDuplicates = function (nums) {
@@ -41,5 +53,5 @@ var removeDuplicates = function (nums) {
 //     return nums.length
 // };
 
-let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-removeDuplicates(nums)
+let nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4];
+removeDuplicates(nums);
